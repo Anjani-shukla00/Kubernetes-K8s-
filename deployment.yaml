@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: welcome-k8s
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: welcome-k8s
+
+  template:
+    metadata:
+      labels:
+        app: welcome-k8s
+
+    spec:
+      containers:
+        - name: welcome-container
+          image: nginx:latest
+          ports:
+            - containerPort: 80
